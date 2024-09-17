@@ -24,9 +24,14 @@ function App() {
         brandfont={pokeFont}
       />
     <Routes>
-      <Route path='/'   element={<ItemListContainer sectionTitle="Selected Products For Your Adventures"/>}/>
-      <Route path='/inventory'   element={<InventoryListContainer/>}/>
-      <Route path="/category/:categoryId" element={<ItemListContainer />} />
+      <Route 
+        path='/'
+        element={<ItemListContainer 
+        sectionTitle="Selected Products For Your Adventures"/>}/>
+      <Route 
+      path='/inventory'   
+      element={<InventoryListContainer/>}/>
+      <Route path="/category/:categoryId" element={<ItemListContainer sectionTitle="Selected Products For Your Adventures"/>} />
       <Route path="/product/:id" element={<ItemDetail />} />
     </Routes>
     </BrowserRouter>
