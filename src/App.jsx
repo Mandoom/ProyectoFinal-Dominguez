@@ -2,6 +2,11 @@
 import './App.css'
 import  NavBar from './components/navBar'
 import ItemListContainer  from './components/ItemListContainer'
+import InventoryListContainer from './components/InventoryListContainer'
+import ItemDetail from './components/itemDetail'
+import {useEffect, useState} from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 
 
 
@@ -11,17 +16,22 @@ function App() {
 
   return (
     <>
-    <NavBar 
-    bg='red' 
-    pageTitle='PokeStore' 
-    pad={paddings} 
-    brandfont={pokeFont}
-    />
-    <ItemListContainer 
-    sectionTitle='Selected Items for your Pokemon adventures'
-    sectionSubtitle='No items available at the moment'
-    pad={paddings}
-    />
+    <BrowserRouter>
+      <NavBar 
+        bg='red' 
+        pageTitle='PokeStore' 
+        pad={paddings} 
+        brandfont={pokeFont}
+      />
+    <Routes>
+      <Route path='/'   element={<ItemListContainer sectionTitle="Selected Products For Your Adventures"/>}/>
+      <Route path='/inventory'   element={<InventoryListContainer/>}/>
+      <Route path="/category/:categoryId" element={<ItemListContainer />} />
+      <Route path="/product/:id" element={<ItemDetail />} />
+    </Routes>
+    </BrowserRouter>
+   
+    
 
     </>
   )
