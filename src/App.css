@@ -80,3 +80,16 @@ justify-content: center; gap: 10 px
 h1.title {
   font-size: 30px;
 }
+
+ul.category-navigation {
+  list-style: none;
+  padding: 0px;
+  display: flex;
+  gap: 10px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 20px;
+}

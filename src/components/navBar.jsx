@@ -29,4 +29,4 @@ function NavBar ({pageTitle, bg, pad, color, brandfont }) {
  )   
 }
 
-export default NavBar
+export default NavBar -m

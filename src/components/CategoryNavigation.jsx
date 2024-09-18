@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 function CategoryNavigation( {categories} ) {
     return (
         <nav>
-            <ul>
+            <ul className="category-navigation">
                 <li>
                     <NavLink to='/' className={({ isActive }) => (isActive ? 'active' : '')}>All Categories</NavLink>
 
