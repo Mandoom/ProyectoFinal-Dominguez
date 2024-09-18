@@ -55,9 +55,10 @@
 
 .brand {
   display:flex;
-flex-direction:column;
+flex-direction:row;
 align-items: center;
-justify-content: center; 
+justify-content: center; gap: 10 px
+
 }
 
 .title {margin: 0px;  -webkit-text-stroke: 2px #0075BE; color: #FFCC00;}
@@ -71,3 +72,11 @@ justify-content: center;
   display: none;
 }
 
+.shopping-cart { display:flex}
+.cartnumber { width:25px; height:25px; background-color:black; display: flex; align-items: center; justify-content: center; border-radius:20px}
+.cartnumber p{ margin: 0; font-size:12px}
+
+
+h1.title {
+  font-size: 30px;
+}
