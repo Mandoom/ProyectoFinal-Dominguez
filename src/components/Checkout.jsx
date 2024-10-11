@@ -8,6 +8,17 @@ function Checkout () {
 
     const { cart } = useContext(cartContext)
     
+    if (cart.length === 0) {
+        return (
+          <div>
+            <h2>Your cart is empty.</h2>
+            <p>You have no items in your shopping cart.</p>
+            <Link to="/">Continue Shopping</Link>
+          </div>
+        );
+      }
+
+
     return ( 
          <div>
             <ul>

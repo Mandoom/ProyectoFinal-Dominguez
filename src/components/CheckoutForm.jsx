@@ -42,7 +42,7 @@ function CheckoutForm() {
         
         ConfirmationAlert.fire({
           title: 'Order Placed!',
-          text: `Thank you for your purchase!`,
+          text: `Thank you for your purchase!  Your order ID is ${orderId}.`,
           icon: 'success',
           confirmButtonText: 'OK',
 
@@ -55,7 +55,7 @@ function CheckoutForm() {
         console.error('Error writing order:', error);
 
         // Show error alert
-        MySwal.fire({
+        ConfirmationAlert.fire({
           title: 'Error!',
           text: 'There was an issue placing your order. Please try again.',
           icon: 'error',

@@ -64,12 +64,12 @@ export const getProducts = async (categoryId) => { // by optional category, sing
     }
 
   }
-
+// create order in firebase
 export const writeOrder = async (order) => {
   try {
     const docRef = await addDoc(collection(db, "orders"), order);
-
     console.log("Document written with ID: ", docRef.id);
+    return docRef.id; //
   } catch (err) {
     console.error("Error adding document: ", err);
   }
