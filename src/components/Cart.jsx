@@ -6,7 +6,7 @@ import {  Link } from 'react-router-dom'
 
 function Cart () {
     
-    const {cart} = useContext(cartContext)
+    const {cart, orderTotal} = useContext(cartContext)
     
     return(
     <div>
@@ -15,6 +15,7 @@ function Cart () {
                 <CartItem key={product.id} product={product}/>
             )}
         </ul>
+        <p>Total: ${orderTotal()}</p>
         <Link to={'/checkout'}>Checkout</Link>
     </div>
     )

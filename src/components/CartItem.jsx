@@ -24,7 +24,8 @@ function CartItem ( {product} ) {
 
     return (
         <li>
-          <p>{product.name} x {product.qty}</p> <button onClick={handleRemove}>Remove from Cart</button>
+          <p>{product.name} x {product.qty} <span>Subtotal = ${product.price * product.qty}</span></p> 
+          <button onClick={handleRemove}>Remove from Cart</button>
         </li>
     )
 }
