@@ -1,6 +1,9 @@
-import React, {useState} from "react";
-import { useContext } from "react";
+import React, {useState, useContext} from "react";
 import { cartContext } from "../context/cartContext";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const MySwal = withReactContent(Swal);
 
 function ItemCounter ({item}) {
     const { cart } = useContext(cartContext)
@@ -25,6 +28,15 @@ function ItemCounter ({item}) {
     const handleAddToCart = () =>  {
         addToCart({...item, qty : count})
         setCount(1)
+
+        MySwal.fire({
+            title: 'Added to Cart!',
+            text: `${item.name} x ${count} has been added to your cart.`,
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
+
+
     }
 
     return (

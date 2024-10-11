@@ -2,6 +2,11 @@ import React, { useState, useContext } from 'react';
 import { cartContext } from "../context/cartContext";
 import { serverTimestamp } from 'firebase/firestore';
 import { writeOrder,  } from '../firebase/database';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+
+const ConfirmationAlert = withReactContent(Swal);
 
 function CheckoutForm() {
   // Initialize state for form fields
@@ -23,9 +28,8 @@ function CheckoutForm() {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form submission behavior
 
-    // Process form data here (e.g., send to an API)
+    // Create order
 
-   
     const order = {
         buyer: {name: formData.name, email: formData.email, phone: formData.phone},
         items: cart, 
@@ -34,11 +38,30 @@ function CheckoutForm() {
     }
     
     writeOrder(order)
+      .then((orderId) => {
+        
+        ConfirmationAlert.fire({
+          title: 'Order Placed!',
+          text: `Thank you for your purchase!`,
+          icon: 'success',
+          confirmButtonText: 'OK',
 
-    console.log('Form submitted:', formData);
-    // Reset form fields after submission
-    setFormData({ name: '', email: '', phone: '' });
-    clearCart()
+        });
+        // Reset form fields and clear the cart
+        setFormData({ name: '', email: '', phone: '' });
+        clearCart();
+      })
+      .catch((error) => {
+        console.error('Error writing order:', error);
+
+        // Show error alert
+        MySwal.fire({
+          title: 'Error!',
+          text: 'There was an issue placing your order. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
+      });
   };
 
   return (
