@@ -28,7 +28,7 @@ function Cart () {
           <CartItem key={product.id} product={product} />
         ))}
       </ul>
-      <p>Total: ${orderTotal().toFixed(2)}</p>
+      <p>Total: ${orderTotal()}</p>
       <Link to="/checkout">Checkout</Link>
     </div>
   );

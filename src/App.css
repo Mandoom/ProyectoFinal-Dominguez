@@ -1,6 +1,9 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
+  background-color: white;
+  color:black;
+  min-height: 100vh;
 }
 
 

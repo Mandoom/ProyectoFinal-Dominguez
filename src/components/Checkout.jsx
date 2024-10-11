@@ -6,7 +6,7 @@ import { writeOrder   } from "../firebase/database";
 
 function Checkout () {
 
-    const { cart } = useContext(cartContext)
+    const { cart, orderTotal } = useContext(cartContext)
     
     if (cart.length === 0) {
         return (
@@ -20,13 +20,16 @@ function Checkout () {
 
 
     return ( 
-         <div>
+         <div className="">
+           <div>
             <ul>
-            {cart.map((product) => 
-                <CheckoutItem key={product.id} product={product} />
-            )}
-            </ul>
+                {cart.map((product) => 
+                    <CheckoutItem key={product.id} product={product} />
+                )}
+                </ul>
+           </div>
             <div>
+            <p>Total: ${orderTotal()}</p>
                 <CheckoutForm />
             </div>
          </div>

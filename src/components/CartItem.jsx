@@ -9,7 +9,7 @@ const MySwal = withReactContent(Swal);
 
 function CartItem ( {product} ) {
 
-    const {  removeFromCart  } = useContext(cartContext);
+    const {  removeFromCart, order  } = useContext(cartContext);
 
 
     const handleRemove = () => {
