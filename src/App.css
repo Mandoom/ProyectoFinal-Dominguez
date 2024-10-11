@@ -209,7 +209,8 @@ input {
   background: white;
   margin-left: 20px;
   height: 28px;
-  margin-bottom:5px
+  margin-bottom:5px;
+  color:black
 }
 
 label {
