@@ -2,8 +2,8 @@ import { useEffect, useState, useContext } from 'react';
 import ItemList from './ItemList'
 import { useParams } from 'react-router-dom';
 import CategoryNavigation from './CategoryNavigation';
-import { cartContext } from '../context/cartContext';
-import { getProducts} from '../firebase/database'
+import { cartContext } from '../../context/cartContext';
+import { getProducts} from '../../firebase/database'
 
 
 function ItemListContainer({ sectionTitle, sectionSubtitle, pad, children }) {
@@ -73,10 +73,12 @@ function ItemListContainer({ sectionTitle, sectionSubtitle, pad, children }) {
  // if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div>
+    <div className='container itemList'>
     {/* Always render the section title and subtitle */}
-    <h1>{sectionTitle}</h1>
-    <h2>{sectionSubtitle}</h2>
+    <div className="sectionHeadings">
+        <h2 className='sectionTitle'>{sectionTitle}</h2>
+        <h3 className='sectionSubTitle'>{sectionSubtitle}</h3>
+    </div>
 
 
     <CategoryNavigation categories={categories} />

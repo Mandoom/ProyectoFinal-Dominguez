@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { cartContext } from "../context/cartContext";
+import { cartContext } from "../../context/cartContext";
 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -23,7 +23,8 @@ function CartItem ( {product} ) {
       };
 
     return (
-        <li>
+        <li className="cartProductItem">
+          <img className="cartProductImage" src={product.image} alt={product.name + ' illustration'} />
           <p>{product.name} x {product.qty} <span>Subtotal = ${product.price * product.qty}</span></p> 
           <button onClick={handleRemove}>Remove from Cart</button>
         </li>

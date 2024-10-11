@@ -1,5 +1,5 @@
 import React, {useState, useContext} from "react";
-import { cartContext } from "../context/cartContext";
+import { cartContext } from "../../context/cartContext";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 

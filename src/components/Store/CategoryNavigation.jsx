@@ -6,16 +6,17 @@ function CategoryNavigation({ categories }) {
       <ul className="category-navigation">
         {/* Link to display all categories */}
         <li>
-          <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
             All Categories
           </NavLink>
         </li>
         {/* Loop through categories to create navigation links */}
         {categories.map((category) => (
-          <li key={category.id}>
+          <li key={category.id} className=''>
             <NavLink
               to={`/category/${category.id}`} // Link to category-specific path
-              className={({ isActive }) => (isActive ? 'active' : '')}
+              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+             
             >
               {category.name} {/* Display category name */}
             </NavLink>

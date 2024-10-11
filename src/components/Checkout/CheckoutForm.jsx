@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { cartContext } from "../context/cartContext";
+import { cartContext } from "../../context/cartContext";
 import { serverTimestamp } from 'firebase/firestore';
-import { writeOrder,  } from '../firebase/database';
+import { writeOrder,  } from '../../firebase/database';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
@@ -94,7 +94,7 @@ function CheckoutForm() {
 
       {/* Phone Number Input Field */}
       <div>
-        <label htmlFor="phone">Phone Number:</label>
+        <label htmlFor="phone">Phone:</label>
         <input
           type="tel"
           id="phone"
