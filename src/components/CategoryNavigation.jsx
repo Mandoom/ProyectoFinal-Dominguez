@@ -1,25 +1,29 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
-function CategoryNavigation( {categories} ) {
-    return (
-        <nav>
-            <ul className="category-navigation">
-                <li>
-                    <NavLink to='/' className={({ isActive }) => (isActive ? 'active' : '')}>All Categories</NavLink>
-
-                </li>
-                {categories.map((category) => (
-                    <li key={category.id}>
-                        <NavLink 
-                        to={`/category/${category.id}`}
-                        className={({ isActive }) => (isActive ? 'active' : '')}>
-                        {category.name}
-                        </NavLink>
-                    </li>
-                ))}
-            </ul>
-        </nav>
-    )
+function CategoryNavigation({ categories }) {
+  return (
+    <nav>
+      <ul className="category-navigation">
+        {/* Link to display all categories */}
+        <li>
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
+            All Categories
+          </NavLink>
+        </li>
+        {/* Loop through categories to create navigation links */}
+        {categories.map((category) => (
+          <li key={category.id}>
+            <NavLink
+              to={`/category/${category.id}`} // Link to category-specific path
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              {category.name} {/* Display category name */}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 }
 
-export default CategoryNavigation
+export default CategoryNavigation;

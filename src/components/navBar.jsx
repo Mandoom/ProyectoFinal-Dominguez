@@ -1,5 +1,5 @@
 import CartWidget   from './cartWidget'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 function NavBar ({pageTitle, bg, pad, color, brandfont }) { 
  return(
@@ -16,17 +16,19 @@ function NavBar ({pageTitle, bg, pad, color, brandfont }) {
            <ul className='menu'>
                 <NavLink className={({ isActive }) => `${isActive ? 'active' : ''} menu-link`} to='/'>Store</NavLink>
                 <NavLink className="menu-link"to='/inventory'>Your Inventory</NavLink>
-                <NavLink className="menu-link"to='/inventory'>Pokedex</NavLink>
+
                 
            </ul>
         </nav>
 
         <div className='cartWidgetContainer'>
-            <CartWidget />
+            <Link to={'/cart'}>
+                <CartWidget />
+            </Link>
         </div>
 
     </div>
  )   
 }
 
-export default NavBar -m
+export default NavBar 

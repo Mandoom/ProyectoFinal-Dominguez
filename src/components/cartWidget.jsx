@@ -1,4 +1,9 @@
+import { useContext } from "react"
+import { cartContext } from "../context/cartContext"
+
 function CartWidget () {
+    const { cart } = useContext(cartContext) 
+
     return (
         <>
         <div className='shopping-cart' id='cartIcon'>
@@ -20,7 +25,7 @@ function CartWidget () {
                 </g>
             </svg>
             <div className="cartnumber">
-                <p>15</p>
+                <p>{cart.length}</p>
             </div>
 
         </div>
