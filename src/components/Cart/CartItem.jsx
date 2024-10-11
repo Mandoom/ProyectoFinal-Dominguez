@@ -15,7 +15,7 @@ function CartItem ( {product} ) {
     const handleRemove = () => {
         removeFromCart(product.id);
        MySwal.fire({
-      title: 'Added to Cart!',
+      title: 'Removed from Cart!',
       text: `${product.name} x ${product.qty} has been removed from your cart.`,
       icon: 'success',
       confirmButtonText: 'OK',
